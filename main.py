@@ -1,4 +1,4 @@
-import discord; os; re; read; from dotenv import load_dotenv; from asyncio import sleep;
+import discord, os, re, read; from dotenv import load_dotenv; from asyncio import sleep;
 load_dotenv()
 token = os.getenv("token")
 
@@ -22,7 +22,7 @@ async def on_message(message):
             await sleep(test)
             await message.delete()
         except:
-            await message.reply("The time you entered is invalid, the proper syntax is #![time to wait][d|h||m|s]\n Given value: " + test + " (DEBUG PURPOSES ONLY)")
+            await message.reply("The time you entered is invalid, the proper syntax is #![time to wait][d|h||m|s]\n Given value: " + str(test) + " (DEBUG PURPOSES ONLY)")
 
         
 
