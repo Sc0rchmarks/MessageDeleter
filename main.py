@@ -16,13 +16,14 @@ async def on_message(message):
     if message.author == client.user:
         return
     if message.content.startswith('#!'): 
-        await message.add_reaction("✅")
-        test = read.resolveTime('#![0-9]*[d|m|s|h|D|M|S|H]', message.content)
+        
         try:
+            test = read.resolveTime('#![0-9]*[d|m|s|h|D|M|S|H]', message.content)
+            await message.add_reaction("✅")
             await sleep(test)
             await message.delete()
         except:
-            await message.reply("The time you entered is invalid, the proper syntax is #![time to wait][d|h||m|s]\n Given value: " + str(test) + " (DEBUG PURPOSES ONLY)")
+            await message.reply("The time you entered is invalid, the proper syntax is #![time to wait][d|h||m|s]")
 
         
 
